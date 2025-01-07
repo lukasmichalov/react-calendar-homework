@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import Calendar from './pages/Calendar/Calendar'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <Calendar></Calendar>
   </StrictMode>,
 )
