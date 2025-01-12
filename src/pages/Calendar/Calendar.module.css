@@ -45,3 +45,13 @@
     color: #fff;    
 }
 
+.empty {
+visibility: hidden;
+}
+
+.dateInput {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+}

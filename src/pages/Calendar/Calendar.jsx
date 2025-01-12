@@ -5,6 +5,7 @@ import DatePicker from '../../components/DatePicker/DatePicker';
 
 const Calendar = () => {
   const [date, setDate] = useState(new Date());
+  const [hide, setHide] = useState(true);
 
   const year = date.getFullYear();
   const month = date.getMonth();
@@ -22,17 +23,20 @@ const Calendar = () => {
 
   return (
     <div className={styles.container}>
-      <DatePicker setDate={setDate}></DatePicker>
-      <div className={styles.calendarGrid}>
+      <DatePicker setDate={setDate} setHide={setHide}></DatePicker>
+      {!hide && <div className={styles.calendarGrid}>
         {['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota', 'Neděle'].map(day => (
           <div key={day} className={styles.calendarHeader}>{day}</div>
         ))}
         {daysArray.map((day, index) => (
-          <div key={index} className={[styles.calendarDay, day === dayOfMonth && styles.current].join(" ")}>
+          <div key={index} className={[styles.calendarDay, day === dayOfMonth && styles.current, day == "" && styles.empty].join(" ")}>
             <div className={styles.calendarDayContent}>{day}</div>
           </div>
         ))}
-      </div>
+      </div>}
+      <div className={styles.dateInput} >
+      <input type="date"/>
+    </div>
     </div>
   )
 }
